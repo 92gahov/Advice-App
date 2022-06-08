@@ -60,3 +60,8 @@ p {
   font-family: 'Chelsea Market';
   font-size: 22px;
 }
+
+.loader {
+  width: 50px;
+  height: 50px;
+}
