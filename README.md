@@ -1,3 +1,7 @@
+An App for your daily random advice.
+
+In the terminal write: npm start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
