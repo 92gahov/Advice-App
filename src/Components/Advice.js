@@ -9,23 +9,18 @@ class Advice extends Component {
             loading: false
         }
     }
-    fetchAdvice = () => {
+
+    getAdvice = async () => {
         this.setState({
             loading: true
         })
-        fetch("https://api.adviceslip.com/advice")
-            .then((response) => response.json())
-            .then((json) => {
-                this.setState({
-                    advice: json.slip.advice,
-                    loading: false
-                })
-            })
-    }
-
-    getAdvice() {
-        this.fetchAdvice();
-    }
+        const response = await fetch("https://api.adviceslip.com/advice");
+        const json = await response.json();
+        this.setState({
+            advice: json.slip.advice,
+            loading: false
+        })
+    };
 
     render() {
         const { advice, loading } = this.state
@@ -33,13 +28,12 @@ class Advice extends Component {
             <div>
                 <h1>Random Advice App</h1>
                 <button onClick={() => this.getAdvice()}>Click</button>
-                {/* <p>{advice}</p> */}
                 <div>
                     {!loading ? <p>{advice}</p> : <Loader />}
                 </div>
             </div>
         )
     }
-}
+};
 
 export default Advice;
